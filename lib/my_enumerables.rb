@@ -40,6 +40,11 @@ module Enumerable
     new_arr
   end
 
+  def my_none?
+    my_each {|elem| return false if yield elem}
+    true
+  end
+
 end
 
 # You will first have to define my_each
