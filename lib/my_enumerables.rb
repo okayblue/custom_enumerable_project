@@ -34,6 +34,11 @@ module Enumerable
     count
   end
 
+  def my_map
+    new_arr = []
+    my_each {|elem| new_arr.push yield elem }
+    new_arr
+  end
 
 end
 
@@ -53,6 +58,8 @@ end
 
 # tests
 array = [1, 2, 3, 9, 33]
+
+array.my_map { |value| value * 2 }
 
 # array.my_count { |value| value > 5 }
 
