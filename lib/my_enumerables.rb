@@ -45,6 +45,12 @@ module Enumerable
     true
   end
 
+  def my_inject(num = 0)
+    sum = num
+    my_each {|elem| sum = yield sum, elem}
+    sum
+  end
+
 end
 
 # You will first have to define my_each
@@ -62,9 +68,12 @@ end
 
 
 # tests
-array = [1, 2, 3, 9, 33]
 
-array.my_map { |value| value * 2 }
+# array = [1, 2, 3, 9, 33]
+
+# array.my_inject { |sum, value| sum + value }
+
+# array.my_map { |value| value * 2 }
 
 # array.my_count { |value| value > 5 }
 
